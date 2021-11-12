@@ -1,0 +1,7 @@
+{
+  "blockchain": "covid",
+  "binary": "/covid-blockchain/venv/bin/covid",
+  "mainnet": ".covid/mainnet",
+  "config": ".covid/mainnet/config/config.yaml",
+  "webLogLevel": "error"
+}

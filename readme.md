@@ -1,10 +1,10 @@
 # the covid hand
 - covid specific docker
-- watchdog with worker mode
+- log parser
 
 # build
-- sudo docker build --no-cache --build-arg COVID_BRANCH=v1.2.9 -t coctohug-covid:latest .
-- sudo docker build --build-arg COVID_BRANCH=v1.2.9 -t coctohug-covid:latest .
+- sudo docker build --no-cache --build-arg CODE_BRANCH=v1.2.9 -t coctohug-covid:latest .
+- sudo docker build --build-arg CODE_BRANCH=v1.2.9 -t coctohug-covid:latest .
 
 # docker-compose
 - coctohug-covid: 
@@ -18,10 +18,11 @@
             - "/mnt/disk2:/plots2" 
         environment: 
             - mode=fullnode 
-            - worker_address=192.168.1.74 
+            - controller_address=192.168.1.74 
+            - worker_address=192.168.1.74
             - plots_dir=/plots1:/plots2 
-            - blockchains=covid 
         ports: 
+            - 12641:12641 
             - 18120:18120 
             - 18129:18129
 

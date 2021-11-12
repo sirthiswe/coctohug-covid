@@ -1,15 +1,15 @@
 #!/bin/env bash
-#
-# Installs Covid as per https://github.com/pinksheetscrypto/covid-blockchain
-#
-COVID_BRANCH=$1
+CODE_BRANCH=$1
+CODE_URL=https://github.com/pinksheetscrypto/covid-blockchain.git
+CODE_FOLDER="/covid-blockchain"
+BINARY_NAME="covid"
 
-if [ -z ${COVID_BRANCH} ]; then
-	echo 'Skipping Covid install as not requested.'
+if [ -z ${CODE_BRANCH} ]; then
+	echo 'Skipping ${BINARY_NAME} install as not requested.'
 else
 	rm -rf /root/.cache
-	git clone --branch ${COVID_BRANCH} --single-branch https://github.com/pinksheetscrypto/covid-blockchain.git /covid-blockchain \
-		&& cd /covid-blockchain \
+	git clone --branch ${CODE_BRANCH} --single-branch ${CODE_URL} ${CODE_FOLDER} \
+		&& cd ${CODE_FOLDER} \
 		&& git submodule update --init mozilla-ca \
 		&& chmod +x install.sh \
 		&& /usr/bin/sh ./install.sh
@@ -17,7 +17,7 @@ else
 	if [ ! -d /chia-blockchain/venv ]; then
 		cd /
 		rmdir /chia-blockchain
-		ln -s /covid-blockchain /chia-blockchain
-		ln -s /covid-blockchain/venv/bin/covid /chia-blockchain/venv/bin/chia
+		ln -s ${CODE_FOLDER} /chia-blockchain
+		ln -s ${CODE_FOLDER}/venv/bin/${BINARY_NAME} /chia-blockchain/venv/bin/chia
 	fi
 fi
