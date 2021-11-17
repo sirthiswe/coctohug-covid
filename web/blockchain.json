@@ -3,5 +3,8 @@
   "binary": "/covid-blockchain/venv/bin/covid",
   "mainnet": ".covid/mainnet",
   "config": ".covid/mainnet/config/config.yaml",
-  "webLogLevel": "error"
+  "webLogLevel": "error",
+  "webLogFile": ".covid/web.log",
+  "watchDogLogLevel": "error",
+  "watchDogLogFile": ".covid/cwd.log"
 }
