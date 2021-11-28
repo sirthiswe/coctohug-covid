@@ -3,6 +3,8 @@
   "binary": "/covid-blockchain/venv/bin/covid",
   "mainnet": ".covid/mainnet",
   "config": ".covid/mainnet/config/config.yaml",
+  "coldWalletName": "cov_target_address",
+  "certificates": ".covid/mainnet/config/ssl/ca",
   "chainlog": ".covid/mainnet/log/debug.log",
   "webLogLevel": "error",
   "webLogFile": ".covid/web.log",
